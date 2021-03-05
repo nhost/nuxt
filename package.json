@@ -1,5 +1,5 @@
 {
-  "name": "nhost-nuxt-module",
+  "name": "@nhost/nuxt",
   "version": "1.0.0",
   "main": "dist/module.js",
   "types": "dist/module.d.ts",
