@@ -1,6 +1,6 @@
 {
   "name": "@nhost/nuxt",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/module.js",
   "types": "dist/module.d.ts",
   "files": [
