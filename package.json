@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "cookie-universal": "^2.1.4",
-    "nhost-js-sdk": "^3.0.0",
+    "nhost-js-sdk": "^3.1.0",
     "nuxt": "^2.15.2",
     "vue": "^2.6.12"
   },
