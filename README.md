@@ -1,4 +1,4 @@
-# nhost-nuxt-module
+# @nhost/nuxt
 
 Nuxt.js wrapper for [nhost-js-sdk](https://github.com/nhost/nhost-js-sdk).
 
@@ -7,20 +7,20 @@ Nuxt.js wrapper for [nhost-js-sdk](https://github.com/nhost/nhost-js-sdk).
 First install the package:
 
 ```
-npm install --save nhost-nuxt-module
+npm install --save @nhost/nuxt
 ```
 
 or using Yarn:
 
 ```
-yarn add nhost-nuxt-module
+yarn add @nhost/nuxt
 ```
 
 Then, add it to your Nuxt config `modules`.
 
 ```js
 {
-  modules: ["nhost-nuxt-module"];
+  modules: ["@nhost/nuxt"];
 }
 ```
 
@@ -29,7 +29,7 @@ You can configure it like so:
 ```js
 {
   modules: [
-    'nhost-nuxt-module'
+    '@nhost/nuxt'
   ],
   nhost: {
     baseURL: "https://backend-url.nhost.app"
@@ -87,12 +87,12 @@ This property takes the following values:
 
 ## Typescript
 
-If you're using Typescript, make sure to include `nhost-nuxt-module` to your Typescript config types:
+If you're using Typescript, make sure to include `@nhost/nuxt` to your Typescript config types:
 
 ```js
 {
   compilerOptions: {
-    types: ["nhost-nuxt-module"];
+    types: ["@nhost/nuxt"];
   }
 }
 ```

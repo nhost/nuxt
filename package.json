@@ -1,6 +1,6 @@
 {
-  "name": "nhost-nuxt-module",
-  "version": "1.0.0",
+  "name": "@nhost/nuxt",
+  "version": "0.1.0",
   "main": "dist/module.js",
   "types": "dist/module.d.ts",
   "files": [
@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "cookie-universal": "^2.1.4",
+    "nhost-js-sdk": "^3.0.0",
     "nuxt": "^2.15.2",
     "vue": "^2.6.12"
   },
