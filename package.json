@@ -21,5 +21,12 @@
   },
   "scripts": {
     "build": "tsc"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "np": {
+    "yarn": true
   }
 }
