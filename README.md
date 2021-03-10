@@ -48,7 +48,7 @@ We provide middleware that automatically handles auth guards for your convenienc
 
 ```js
 {
-  router {
+  router: {
     middleware: ['nhost/auth']
   }
 }
