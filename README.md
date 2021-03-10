@@ -83,7 +83,7 @@ This property takes the following values:
 
 1. `true`: User has to be authenticated to access this page. Users who are logged out will be redirected to the `logout` route.
 2. `false`: This is the default value; no authentication required.
-3. `'guest'`: This page can only be accessed by unauthenticated users. Users who have logged in will be redirected to the `home` route.
+3. `'guest'`: This page can only be accessed by unauthenticated users. Users who are logged in will be redirected to the `home` route.
 
 ## Typescript
 
