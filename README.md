@@ -38,7 +38,7 @@ You can configure it like so:
 }
 ```
 
-To check out all the available options, check our [documentation](https://docs.nhost.io/libraries/nhost-js-sdk#setup).
+Check out our [documentation](https://docs.nhost.io/libraries/nhost-js-sdk#setup) for all the available options.
 
 ## Middleware
 
