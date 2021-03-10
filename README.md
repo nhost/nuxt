@@ -18,23 +18,17 @@ yarn add nhost-nuxt-module
 
 Then, add it to your Nuxt config `modules`.
 
-```
+```js
 {
-  ...
-  modules: [
-    ...
-    'nhost-nuxt-module'
-  ]
+  modules: ["nhost-nuxt-module"];
 }
 ```
 
 You can configure it like so:
 
-```
+```js
 {
-  ...
   modules: [
-    ...
     'nhost-nuxt-module'
   ],
   nhost: {
@@ -52,9 +46,8 @@ We provide middleware that automatically handles auth guards for your convenienc
 
 1. Add `nhost/auth` to your Nuxt config middleware:
 
-```
+```js
 {
-  ...
   router {
     middleware: ['nhost/auth']
   }
@@ -63,10 +56,9 @@ We provide middleware that automatically handles auth guards for your convenienc
 
 2. Define the `home` and `logout` routes on the nhost config
 
-```
+```js
 {
   nhost: {
-    ...
     routes: {
       home: '/dashboard',
       logout: '/'
@@ -97,15 +89,10 @@ This property takes the following values:
 
 If you're using Typescript, make sure to include `nhost-nuxt-module` to your Typescript config types:
 
-```
+```js
 {
-  ...
   compilerOptions: {
-    ...
-    types: [
-      ...
-      "nhost-nuxt-module"
-    ]
+    types: ["nhost-nuxt-module"];
   }
 }
 ```
