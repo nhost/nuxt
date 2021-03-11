@@ -144,7 +144,7 @@ apollo: {
 
 ## Usage
 
-Exposes an `$nhost` property on the `Vue` object and on the Nuxt `Context` which is an instance of `NHostClient`
+Exposes an `$nhost` property on the `Vue` object and on the Nuxt `Context` which is an instance of `NhostClient`
 
 ## Example
 
