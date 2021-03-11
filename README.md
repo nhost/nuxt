@@ -49,7 +49,7 @@ We provide middleware that automatically handles auth guards for your convenienc
 ```js
 {
   router: {
-    middleware: ['nhost/auth']
+    middleware: ["nhost/auth"];
   }
 }
 ```
@@ -97,6 +97,56 @@ If you're using Typescript, make sure to include `@nhost/nuxt` to your Typescrip
 }
 ```
 
+## Nuxt-apollo
+
+To use this library with nuxt-apollo, you have to create two nuxt plugin: `nuxt-apollo-config.js` and `nhost-apollo-ws-client.js` inside your `plugins` folder with the following content:
+
+```js
+// nuxt-apollo-config.js
+export default (ctx) => {
+  return {
+    httpEndpoint: "https://hasura-<YOUR ID>.nhost.app/v1/graphql",
+    wsEndpoint: "wss://hasura-<YOUR ID>.nhost.app/v1/graphql",
+    getAuth: () => `Bearer ${ctx.$nhost.auth.getJWTToken()}`,
+  };
+};
+```
+
+```js
+// nhost-apollo-ws-client.js
+export default (ctx) => {
+  const subscriptionClient = ctx.app.apolloProvider.defaultClient.wsClient;
+
+  ctx.$nhost.auth.onAuthStateChanged((state) => {
+    if (subscriptionClient.status === 1) {
+      subscriptionClient.close();
+      subscriptionClient.tryReconnect();
+    }
+  });
+
+  ctx.$nhost.auth.onTokenChanged(() => {
+    if (subscriptionClient.status === 1) {
+      subscriptionClient.tryReconnect();
+    }
+  });
+};
+```
+
+Then, in your Nuxt config:
+
+```js
+// nhost-apollo-ws-client.js
+apollo: {
+  clientConfigs: {
+    default: '~/plugins/nhost-apollo-config.js'
+  }
+},
+```
+
 ## Usage
 
-Exposes an `$nhost` property on the `Vue` object and on the Nuxt `Context` which is an instance of `NhostClient`
+Exposes an `$nhost` property on the `Vue` object and on the Nuxt `Context` which is an instance of `NHostClient`
+
+## Example
+
+You can find an example project with this library and `nuxt-apollo` [here](https://github.com/nhost/nhost/tree/main/examples/nuxt)
