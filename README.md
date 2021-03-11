@@ -135,7 +135,6 @@ export default (ctx) => {
 Then, in your Nuxt config:
 
 ```js
-// nhost-apollo-ws-client.js
 apollo: {
   clientConfigs: {
     default: '~/plugins/nhost-apollo-config.js'
