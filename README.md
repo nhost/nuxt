@@ -167,4 +167,4 @@ Exposes an `$nhost` property on the `Vue` object and on the Nuxt `Context`, whic
 
 ## Example
 
-You can find an example project with this library and `nuxt-apollo` [here](https://github.com/nhost/nhost/tree/main/examples/nuxt)
+You can find an example project with this library and `@nuxtjs/apollo` [here](https://github.com/nhost/nhost/tree/main/examples/nuxt-apollo)
