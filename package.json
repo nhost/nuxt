@@ -26,6 +26,13 @@
     "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhost/nuxt-nhost-module.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nhost/nuxt-nhost-module/issues"
+  },
   "np": {
     "yarn": true
   }
