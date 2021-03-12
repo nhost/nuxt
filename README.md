@@ -2,12 +2,14 @@
   <h1 align="center">
     @nhost/nuxt
   </h1>
-  <p>Use Nhost with NuxtJS</p>
+  <p>
+    NuxtJS module for Nhost
+  </p>
   <p>
     <img src="https://img.shields.io/npm/dt/@nhost/nuxt" />
     <img src="https://img.shields.io/npm/v/@nhost/nuxt" />
     <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/nhost/nuxt-nhost-module">
-    <img src="https://img.shields.io/npm/l/nhost" />
+    <img src="https://img.shields.io/npm/l/@nhost/nuxt" />
     </p>
   </p>
 </div>
