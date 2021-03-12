@@ -1,6 +1,6 @@
 <div align="center">
   <h1 align="center">
-    Nuxt Nhost Module
+    @nhost/nuxt
   </h1>
   <p>Use Nhost with NuxtJS</p>
   <p>
@@ -9,14 +9,6 @@
     <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/nhost/nuxt-nhost-module">
     <img src="https://img.shields.io/npm/l/nhost" />
     </p>
-    <p>From Nhost</p>
-    <p>
-    <a href="https://discord.com/invite/9V7Qb2U" target="_blank" rel="noopener noreferrer">
-      <img src="https://img.shields.io/discord/552499021260914688" />
-    </a>
-    <a href="https://twitter.com/nhostio" target="_blank" rel="noopener noreferrer">
-      <img src="https://img.shields.io/twitter/follow/nhostio?style=social" />
-    </a>
   </p>
 </div>
 
