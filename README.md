@@ -1,30 +1,40 @@
-# @nhost/nuxt
-
-Nuxt.js wrapper for [nhost-js-sdk](https://github.com/nhost/nhost-js-sdk).
+<div align="center">
+  <h1 align="center">
+    Nuxt Nhost Module
+  </h1>
+  <p>Use Nhost with NuxtJS</p>
+  <p>
+    <img src="https://img.shields.io/npm/dt/@nhost/nuxt" />
+    <img src="https://img.shields.io/npm/v/@nhost/nuxt" />
+    <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/nhost/nuxt-nhost-module">
+    <img src="https://img.shields.io/npm/l/nhost" />
+    </p>
+    <p>From Nhost</p>
+    <p>
+    <a href="https://discord.com/invite/9V7Qb2U" target="_blank" rel="noopener noreferrer">
+      <img src="https://img.shields.io/discord/552499021260914688" />
+    </a>
+    <a href="https://twitter.com/nhostio" target="_blank" rel="noopener noreferrer">
+      <img src="https://img.shields.io/twitter/follow/nhostio?style=social" />
+    </a>
+  </p>
+</div>
 
 ## Installation
 
-First install the package:
+Using NPM:
 
-```
-npm install --save @nhost/nuxt
+```bash
+$ npm install --save @nhost/nuxt
 ```
 
 or using Yarn:
 
-```
-yarn add @nhost/nuxt
-```
-
-Then, add it to your Nuxt config `modules`.
-
-```js
-{
-  modules: ["@nhost/nuxt"];
-}
+```bash
+$ yarn add @nhost/nuxt
 ```
 
-You can configure it like so:
+Add module and configure nhost in `nuxt.config.js`:
 
 ```js
 {
@@ -32,17 +42,17 @@ You can configure it like so:
     '@nhost/nuxt'
   ],
   nhost: {
-    baseURL: "https://backend-url.nhost.app"
-    // Your options go here
+    baseURL: "https://backend-REPLACE.nhost.app"
+    // optional other nhost-js-sdk setup options
   }
 }
 ```
 
-Check out our [documentation](https://docs.nhost.io/libraries/nhost-js-sdk#setup) for all the available options.
+Check out our [documentation](https://docs.nhost.io/libraries/nhost-js-sdk#setup) for all the available `nhost-js-sdk` options.
 
 ## Middleware
 
-We provide middleware that automatically handles auth guards for your convenience. To enable it, follow the below steps:
+We provide middleware that automatically handles auth guards to protect pages.
 
 1. Add `nhost/auth` to your Nuxt config middleware:
 
@@ -67,7 +77,7 @@ We provide middleware that automatically handles auth guards for your convenienc
 }
 ```
 
-Users who attempt to access auth guarded pages without being logged in will be redirected to the `logout` route and users who are logged in and attempt to access guest pages will be redirected to the `home` route.
+Users who attempt to access auth guarded pages without being logged in gets redirected to the `logout` route, and users who are logged in and attempt to access guest pages gets redirected to the `home` route.
 
 These routes can also be set to either `undefined` or `false` which will disable their respective functionality. They are also available under `this.$nhost.$options.routes` on Vue components or `ctx.$nhost.$options.routes` on the Nuxt Context.
 
@@ -79,9 +89,9 @@ export default {
 };
 ```
 
-This property takes the following values:
+`nhostAuth` takes the following values:
 
-1. `true`: User has to be authenticated to access this page. Users who are logged out will be redirected to the `logout` route.
+1. `true`: Users must be authenticated to access this page. If the user is not authenticated, the user gets redirected to the `logout` route.
 2. `false`: This is the default value; no authentication required.
 3. `'guest'`: This page can only be accessed by unauthenticated users. Users who are logged in will be redirected to the `home` route.
 
@@ -99,24 +109,26 @@ If you're using Typescript, make sure to include `@nhost/nuxt` to your Typescrip
 
 ## Nuxt-apollo
 
-To use this library with nuxt-apollo, you have to create two nuxt plugin: `nuxt-apollo-config.js` and `nhost-apollo-ws-client.js` inside your `plugins` folder with the following content:
+To use this library with nuxt-apollo, create two Nuxt plugins: `nuxt-apollo-config.js` and `nhost-apollo-ws-client.js` inside your `plugins` folder with the following content:
+
+**nuxt-apollo-config.js**
 
 ```js
-// nuxt-apollo-config.js
 export default (ctx) => {
   return {
-    httpEndpoint: "https://hasura-<YOUR ID>.nhost.app/v1/graphql",
-    wsEndpoint: "wss://hasura-<YOUR ID>.nhost.app/v1/graphql",
+    httpEndpoint: "https://hasura-<REPLACE>.nhost.app/v1/graphql",
+    wsEndpoint: "wss://hasura-<REPLACE>.nhost.app/v1/graphql",
     getAuth: () => {
-      const token = ctx.$nhost.auth.getJWTToken()
-      return token ? `Bearer ${token}` : null
-    }
+      const token = ctx.$nhost.auth.getJWTToken();
+      return token ? `Bearer ${token}` : null;
+    },
   };
 };
 ```
 
+**nhost-apollo-ws-client.js**
+
 ```js
-// nhost-apollo-ws-client.js
 export default (ctx) => {
   const subscriptionClient = ctx.app.apolloProvider.defaultClient.wsClient;
 
@@ -137,17 +149,27 @@ export default (ctx) => {
 
 Then, in your Nuxt config:
 
-```js
-apollo: {
-  clientConfigs: {
-    default: '~/plugins/nhost-apollo-config.js'
-  }
-},
+```json
+{
+  [...]
+  "plugins": [
+    {
+      "src": "~/plugins/nhost-apollo-ws-client.js",
+      "mode": "client"
+    }
+  ],
+  "apollo": {
+    "clientConfigs": {
+      "default": "~/plugins/nhost-apollo-config.js"
+    }
+  },
+  [...]
+}
 ```
 
 ## Usage
 
-Exposes an `$nhost` property on the `Vue` object and on the Nuxt `Context` which is an instance of `NhostClient`
+Exposes an `$nhost` property on the `Vue` object and on the Nuxt `Context`, which is an instance of `NhostClient`
 
 ## Example
 
