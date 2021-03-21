@@ -32,5 +32,6 @@ export default function nhostPlugin(ctx, inject) {
   client.$options = options;
 
   inject('nhost', client);
-  ctx.$nhost = client;
+
+  return client.auth.isAuthenticatedAsync().then();
 };
