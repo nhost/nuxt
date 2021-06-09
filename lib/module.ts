@@ -6,7 +6,7 @@ import { resolve, join } from 'path'
 declare module 'vue/types/vue' {
   interface Vue {
     $nhost: ReturnType<typeof createClient>
-    nhostAuth: boolean|'guest';
+    nhostAuth: boolean | 'guest';
   }
 }
 
@@ -15,9 +15,9 @@ declare module '@nuxt/types' {
     $nhost: ReturnType<typeof createClient> & {
       $options: {
         routes: {
-          home: string|false|undefined;
-          login: string|false|undefined;
-          logout: string|false|undefined;
+          home: string | false | undefined;
+          login: string | false | undefined;
+          logout: string | false | undefined;
         }
       }
     }
@@ -26,7 +26,7 @@ declare module '@nuxt/types' {
 
 type Options = UserConfig;
 
-const nhostModule: Module<Options> = function(options) {
+const nhostModule: Module<Options> = function (options) {
   this.addPlugin({
     src: path.resolve(__dirname, '../templates/plugin.js'),
     options: {
@@ -36,7 +36,8 @@ const nhostModule: Module<Options> = function(options) {
   });
 
   this.options.alias['~nhost/auth-middleware'] = resolve(__dirname, 'authMiddleware');
-  this.options.build.transpile?.push(__dirname);
+  if (this.options.build.transpile)
+    this.options.build.transpile.push(__dirname);
 };
 
 export const meta = require('../package.json');
