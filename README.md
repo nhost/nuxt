@@ -26,4 +26,4 @@ or
 
 ## Documentation
 
-https://docs.nhost.io/libraries/nhost-nuxt
+https://docs.old.nhost.io/libraries/nhost-nuxt
