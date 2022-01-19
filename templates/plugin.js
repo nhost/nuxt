@@ -1,4 +1,4 @@
-import {createClient} from "nhost-js-sdk";
+import {createClient} from "@nhost/nhost-js";
 import cookieUniversal from 'cookie-universal';
 import Middleware from './middleware'
 import {authMiddleware} from '~nhost/auth-middleware';

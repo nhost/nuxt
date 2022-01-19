@@ -1,7 +1,9 @@
+//  var { createClient, UserConfig } = require('../../nhost-js');
+
 import path from 'path';
 import { Module } from '@nuxt/types';
-import type { createClient, UserConfig } from 'nhost-js-sdk';
-import { resolve, join } from 'path'
+import type { createClient, NhostClientConstructorParams } from '@nhost/nhost-js';
+import { resolve } from 'path'
 
 declare module 'vue/types/vue' {
   interface Vue {
@@ -24,7 +26,7 @@ declare module '@nuxt/types' {
   }
 }
 
-type Options = UserConfig;
+type Options = NhostClientConstructorParams;
 
 const nhostModule: Module<Options> = function (options) {
   this.addPlugin({
