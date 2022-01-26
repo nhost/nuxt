@@ -1,6 +1,6 @@
 {
   "name": "@nhost/nuxt",
-  "version": "0.1.7",
+  "version": "0.1.6",
   "description": "Nhost Nuxt client",
   "license": "MIT",
   "keywords": [
@@ -27,7 +27,6 @@
     "dist",
     "templates"
   ],
-  "license": "MIT",
   "devDependencies": {
     "@nuxt/types": "^2.15.2",
     "@types/node": "^14.14.31",
@@ -47,13 +46,6 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nhost/nuxt.git"
-  },
-  "bugs": {
-    "url": "https://github.com/nhost/nuxt/issues"
   },
   "np": {
     "yarn": true
